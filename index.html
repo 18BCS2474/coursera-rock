@@ -1,19 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html ng-app="myapp">
   <head>
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
 <script src="myctrl.js"></script>
     <meta charset="utf-8">
     <title>Hello coursera</title>
+
   </head>
   <body>
-    <div ng-app="myapp" ng-controller="myctrl">
-<h2>Name Calculator</h2>
-Name:<input type="text" ng-model="name" ng-keyup="displaynumeric();">
-<div><br>Totalname in numeric is:<span ng-bind="totalvalue" </span></div>
-<!-- Name:{{name}} -->
-<p>Name:<span ng-bind="name"></span></p>
+    <div  ng-controller="myctrl">
+<div >
+  <h1>Lunch Checker</h1>
+  <input type="text"  ng-model="name" placeholder="list comma separated dishes you usually have for lunch">
+  <br>
+ <br>
+
+  <button ng-click="changer()">Check If Too Much</button>
+  <div ng-if="displaynumeric()>=1 && displaynumeric()<=18">
+    <h3 style="color:green">{{greet}}</h3>
+  </div>
+  <div ng-if="displaynumeric()>=19">
+    <h3 style="color:green;text-align: center">{{over}}</h3>
+  </div>
+  <div ng-if="displaynumeric()==0">
+    <h4 style="color:red">{{empty}}</h4>
+  </div>
+</div>
+
 </div>
 
   </body>
