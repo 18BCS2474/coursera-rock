@@ -1,9 +1,7 @@
 app.controller("myctrl",function($scope)
 {
  $scope.name = [];
- // $scope.greet="";
- // $scope.over="";
- // $scope.empty="";
+
  $scope.totalvalue= 0;
  $scope.displaynumeric=function()
  {
@@ -25,10 +23,7 @@ $scope.changer=function()
  function calculatornumericstring(string)
  {
    var totalstringvalue=$scope.name.length;
-   // for(var i=0;i<string.length;i++)
-   // {
-   //   totalstringvalue+=string.charCodeAt(i);
-   // }
+  
    return totalstringvalue;
  }
 

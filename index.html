@@ -17,14 +17,14 @@
  <br>
 
   <button ng-click="changer()">Check If Too Much</button>
-  <div ng-if="displaynumeric()>=1 && displaynumeric()<=18">
+  <div ng-if="displaynumeric()>=1 && displaynumeric()<=20">
     <h3 style="color:green">{{greet}}</h3>
   </div>
-  <div ng-if="displaynumeric()>=19">
-    <h3 style="color:green;text-align: center">{{over}}</h3>
+  <div ng-if="displaynumeric()>=21">
+    <h3 style="color:green">{{over}}</h3>
   </div>
   <div ng-if="displaynumeric()==0">
-    <h4 style="color:red">{{empty}}</h4>
+    <h3 style="color:red">{{empty}}</h3>
   </div>
 </div>
 
