@@ -1,30 +1,37 @@
-app.controller("myctrl",function($scope)
+const URL="https://covid19.mathdro.id/api";
+const URL1="https://covid19.mathdro.id/api/countries/india";
+app.controller("myctrl",function($scope,$http)
 {
- $scope.name = [];
+ $scope.titl="Stay Home Stay Safe";
+ console.log("App loaded");
+ $http.get(URL).then(function(response)
+ {
+   console.log("success");
+   console.log(response.data);
+   $scope.all_data=response.data;
+ },function(error)
+{
+  console.log(error);
+})
+// c-data
+$scope.c_data=function()
+{
 
- $scope.totalvalue= 0;
- $scope.displaynumeric=function()
- {
-   var totalnamevalue=calculatornumericstring($scope.name);
-   $scope.totalvalue=totalnamevalue;
- return  $scope.totalvalue;
- };
- $scope.check=function()
- {
-   $scope.cake="hi";
-   return $scope.cake;
- }
-$scope.changer=function()
+  let country=$scope.c;
+  // $scope.chef=country;
+
+
+  $http.get(`${URL}/countries/${country}`).then(function(response)
 {
-  $scope.greet="Enjoy!";
-  $scope.over="Too much!";
-   $scope.empty="Please enter data first";
+  $scope.chef=country;
+   console.log("success");
+  console.log(response.data);
+  $scope.cdata=response.data;
+
+},function(error)
+{
+  console.log("erro");
+  console.log(error);
+})
 }
- function calculatornumericstring(string)
- {
-   var totalstringvalue=$scope.name.length;
-  
-   return totalstringvalue;
- }
-
-}) ;
+});

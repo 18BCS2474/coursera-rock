@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html ng-app="myapp">
   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
 <script src="myctrl.js"></script>
@@ -8,27 +13,76 @@
     <title>Hello coursera</title>
 
   </head>
-  <body>
-    <div  ng-controller="myctrl">
-<div >
-  <h1>Lunch Checker</h1>
-  <input type="text"  ng-model="name" placeholder="list comma separated dishes you usually have for lunch">
-  <br>
- <br>
-
-  <button ng-click="changer()">Check If Too Much</button>
-  <div ng-if="displaynumeric()>=1 && displaynumeric()<=19">
-    <h3 style="color:green">{{greet}}</h3>
+  <body ng-controller="myctrl" >
+    <div class="container">
+    <div class="jumbotron py-3 ">
+      <center>
+      <img src="mask.jpg" style="text-align: center; " >
+    </center>
+  <h3 class="text-center">{{titl}}</h3>
+  <p>The coronavirus outbreak came to light on December 31, 2019 when China informed the World Health Organisation of a cluster of cases of pneumonia of an unknown cause in Wuhan City in Hubei Province. Subsequently the disease spread to more Provinces in China, and to the rest of the world. The WHO has now declared it a pandemic. The virus has been named SARS-CoV-2 and the disease is now called COVID-19</p>
+<!-- all_data -->
+<div class="row text-center mt-4"  >
+  <div class="col-md-4">
+    <div class="card bg-warning text-orange" >
+      <div class="card body" style="background-color:Orange;">
+        <h3>Confirmed Cases</h3>
+        <h3>{{all_data.confirmed.value}}</h3>
+      </div>
+        </div>
   </div>
-  <div ng-if="displaynumeric()>=20">
-    <h3 style="color:green">{{over}}</h3>
+  <div class="col-md-4">
+    <div class="card bg-success text-green">
+      <div class="card body" style="background-color:Green;">
+        <h3>Recovered Cases</h3>
+        <h3>{{all_data.recovered.value}}</h3>
+      </div>
+        </div>
   </div>
-  <div ng-if="displaynumeric()==0">
-    <h3 style="color:red">{{empty}}</h3>
+  <div class="col-md-4">
+    <div class="card bg-danger text-red">
+      <div class="card body" style="background-color:Red;">
+        <h3>Death Cases</h3>
+        <h3>{{all_data.deaths.value}}</h3>
+      </div>
+        </div>
+        <br>
+        <h5>Exact Data given by Raushan Rock</h5>
+  </div>
+  </div>
+<!-- end_data -->
+<input type="text" class="form-control mt-4" placeholder="Enter country name in small letter" ng-model="c" ng-change="c_data()" >
+<div class="container-fluid"  ng-if="cdata">
+  <h1 class="text-center mt-4 text-uppercase">{{c}} Status</h1>
+<div class="row text-center mt-4">
+  <div class="col-md-4">
+    <div class="card bg-warning text-orange">
+      <div class="card body" style="background-color:Orange;">
+        <h3>Confirmed Cases</h3>
+        <h3>{{cdata.confirmed.value}}</h3>
+      </div>
+        </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card bg-success text-green">
+      <div class="card body" style="background-color:Green;">
+        <h3>Recovered Cases</h3>
+        <h3>{{cdata.recovered.value}}</h3>
+      </div>
+        </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card bg-danger text-red">
+      <div class="card body" style="background-color:Red;">
+        <h3>Death Cases</h3>
+        <h3>{{cdata.deaths.value}}</h3>
+      </div>
+        </div>
+  </div>
   </div>
 </div>
-
+<!-- cdata -->
 </div>
-
+</div>
   </body>
 </html>
