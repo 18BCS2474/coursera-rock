@@ -10,21 +10,24 @@
     <script src="app.js"></script>
 <script src="myctrl.js"></script>
     <meta charset="utf-8">
-    <title>Hello coursera</title>
+    <title>Raushan Rock World</title>
 
   </head>
   <body ng-controller="myctrl" >
-    <div class="container">
+    <!-- <div class="container"> -->
     <div class="jumbotron py-3 ">
       <center>
+        <h2>Welcome To Rock World</h2>
+        <br><h4>Here you can get latest report of COVID19</h4>
       <img src="mask.jpg" style="text-align: center; " >
     </center>
-  <h3 class="text-center">{{titl}}</h3>
+  <h2 class="text-center">{{titl}}</h2>
   <p>The coronavirus outbreak came to light on December 31, 2019 when China informed the World Health Organisation of a cluster of cases of pneumonia of an unknown cause in Wuhan City in Hubei Province. Subsequently the disease spread to more Provinces in China, and to the rest of the world. The WHO has now declared it a pandemic. The virus has been named SARS-CoV-2 and the disease is now called COVID-19</p>
 <!-- all_data -->
+  <h1 class="text-center mt-4 text-uppercase">WorldWide Cases</h1>
 <div class="row text-center mt-4"  >
   <div class="col-md-4">
-    <div class="card bg-warning text-orange" >
+    <div class="card" >
       <div class="card body" style="background-color:Orange;">
         <h3>Confirmed Cases</h3>
         <h3>{{all_data.confirmed.value}}</h3>
@@ -32,7 +35,7 @@
         </div>
   </div>
   <div class="col-md-4">
-    <div class="card bg-success text-green">
+    <div class="card">
       <div class="card body" style="background-color:Green;">
         <h3>Recovered Cases</h3>
         <h3>{{all_data.recovered.value}}</h3>
@@ -40,7 +43,7 @@
         </div>
   </div>
   <div class="col-md-4">
-    <div class="card bg-danger text-red">
+    <div class="card">
       <div class="card body" style="background-color:Red;">
         <h3>Death Cases</h3>
         <h3>{{all_data.deaths.value}}</h3>
@@ -56,7 +59,7 @@
   <h1 class="text-center mt-4 text-uppercase">{{c}} Status</h1>
 <div class="row text-center mt-4">
   <div class="col-md-4">
-    <div class="card bg-warning text-orange">
+    <div class="card ">
       <div class="card body" style="background-color:Orange;">
         <h3>Confirmed Cases</h3>
         <h3>{{cdata.confirmed.value}}</h3>
@@ -64,25 +67,27 @@
         </div>
   </div>
   <div class="col-md-4">
-    <div class="card bg-success text-green">
+    <div class="card ">
       <div class="card body" style="background-color:Green;">
         <h3>Recovered Cases</h3>
         <h3>{{cdata.recovered.value}}</h3>
+
       </div>
         </div>
   </div>
   <div class="col-md-4">
-    <div class="card bg-danger text-red">
+    <div class="card ">
       <div class="card body" style="background-color:Red;">
         <h3>Death Cases</h3>
         <h3>{{cdata.deaths.value}}</h3>
       </div>
         </div>
   </div>
+
   </div>
 </div>
 <!-- cdata -->
 </div>
-</div>
+
   </body>
 </html>

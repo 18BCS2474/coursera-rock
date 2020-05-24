@@ -1,5 +1,6 @@
 const URL="https://covid19.mathdro.id/api";
 const URL1="https://covid19.mathdro.id/api/countries/india";
+const URL2="http://covid19-india-adhikansh.herokuapp.com/states";
 app.controller("myctrl",function($scope,$http)
 {
  $scope.titl="Stay Home Stay Safe";
@@ -34,4 +35,6 @@ $scope.c_data=function()
   console.log(error);
 })
 }
+// statewise
+
 });
