@@ -1,73 +1,77 @@
 (function () {
 'use strict';
-angular.module('ShoppingListCheckOff', [])
-.controller('ToBuyController', ToBuyController)
-.controller('AlreadyBoughtController', AlreadyBoughtController)
-.service('ShoppingListService', ShoppingListService);
+//Module declaration
+angular.module('NarrowItDownApp', [])
+.controller('NarrowItDownController', NarrowItDownController)
+.service('MenuSearchService', MenuSearchService)
+.directive('foundItems', FoundItemsDirective)
+.constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
 
-ToBuyController.$inject = ['ShoppingListService'];
-function ToBuyController(ShoppingListService) {
-  var buyctrl = this;
-  var length = 4;
-  var Itemstobuy = [{itemQuantity: 10, itemName: "Cookies"},{itemQuantity: 10, itemName: "Choclates"},{itemQuantity: 10, itemName: "Icecreams"},{itemQuantity: 10, itemName: "Books"},{itemQuantity: 10, itemName: "Pens"}];
-  for (var i=0; i<5; i++)
-  {
-    buyctrl.addItem = (function () { ShoppingListService.addItem(Itemstobuy[i].itemName, Itemstobuy[i].itemQuantity); console.log(Itemstobuy[i]) })();
+function FoundItemsDirective() {
+  var ddo = {
+    templateUrl: 'foundItems.html',
+    scope: {
+      items: '<',
+      onRemove: '&'
+     },
+    controller: FoundItemsController,
+    controllerAs: 'foundItemsCtrl',
+    bindToController: true,
+  };
+
+  return ddo;
+}
+
+//Controller to wrap the search textbox and button as well as the list of found items
+NarrowItDownController.$inject = ['MenuSearchService'];
+function NarrowItDownController(MenuSearchService) {
+  var ctrl = this;
+
+  ctrl.narrowItDown = function () {
+    console.log("Search Term : ",ctrl.searchTerm);
+    var promise =  MenuSearchService.getMatchedMenuItems(ctrl.searchTerm);
+    promise.then(getMatchedMenuItems);
   }
-    buyctrl.items = ShoppingListService.getItems();
-    buyctrl.removeItem = function (itemIndex) {
-    ShoppingListService.removeItem(itemIndex, "frombuyctrl");
-    length =buyctrl.items.length;
 
+ function getMatchedMenuItems(response) {
+   ctrl.found = response;
+ }
+
+  ctrl.removeItem = function (itemIndex) {
+    ctrl.found.splice(itemIndex, 1);
   };
 }
 
-AlreadyBoughtController.$inject = ['ShoppingListService'];
-function AlreadyBoughtController(ShoppingListService) {
-  var boughtctrl = this;
-  boughtctrl.moveditems = ShoppingListService.getmovedItems();
-  boughtctrl.removeItem = function (itemIndex) {
-  ShoppingListService.removeItem(itemIndex,"fromboughtctrl");
-  length =boughtctrl.moveditems.length;
-  };
-}
-
-function ShoppingListService() {
+//Service to retrieve the list of all the menu items and narraow them down with teh criteria
+MenuSearchService.$inject = ['$http', 'ApiBasePath']
+function MenuSearchService($http,ApiBasePath) {
   var service = this;
-  // List of shopping items
-  var items = [];
-  var moveditems = [];
-  var i=0;
-  service.addItem = function (itemName, quantity) {
-    console.log("ram");
-    var item = {
-      name: itemName,
-      quantity: quantity
-    };
-    items.push(item);
-    console.log(items[4]);
-  };
 
-  service.removeItem = function (itemIdex,controller) {
-    if(controller == "frombuyctrl" )
-    {
-      moveditems.push(items[itemIdex]);
-      items.splice(itemIdex, 1);
-      i++;
-    }
-    if(controller == "fromboughtctrl")
-    {
-      service.addItem(moveditems[itemIdex].name, moveditems[itemIdex].quantity);
-      moveditems.splice(itemIdex,1);
-    }
-  };
+  service.getMatchedMenuItems = function (searchTerm) {
+    var response = $http({
+    method: "GET",
+    url: (ApiBasePath + "/menu_items.json")
+  });
 
-  service.getItems = function () {
-    return items;
-  };
-
-  service.getmovedItems = function () {
-    return moveditems;
-  };
+  return response.then(function (result) {
+    var foundItems = [];
+    for (var i = 0; i < result.data.menu_items.length; i++) {
+       if (result.data.menu_items[i].description.toLowerCase().indexOf(searchTerm) !== -1) {
+         foundItems.push(result.data.menu_items[i]);
+       }
+     }
+   return foundItems;
+  })
+  .catch(function (error) {
+    console.log("Something went terribly wrong.");
+  });
+  }
+}
+//Controller used in foundItems.html
+function FoundItemsController() {
+  var foundItemsCtrl = this;
+  foundItemsCtrl.empty = function () {
+    return (foundItemsCtrl.items !== undefined) && foundItemsCtrl.items.length == 0;
+  }
 }
 })();

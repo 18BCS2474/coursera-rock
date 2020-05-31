@@ -1,45 +1,28 @@
-<!DOCTYPE html>
-<html ng-app='ShoppingListCheckOff'>
+<!doctype html>
+<html lang="en" ng-app="NarrowItDownApp">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="angular.min.js"></script>
-    <script src="myctrl.js"></script>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/styles.css"
-
+    <link rel="stylesheet" href="styles/mystyle.css">
   </head>
-  <body>
-    <div class="container">
-    <h1>Shopping List Check Off</h1>
-    <div class="row">
-    <!-- To Buy List -->
-    <div class="col-md-6">
-     <h2>To Buy:</h2>
-     <div ng-controller='ToBuyController as buyctrl'>
-     <ul>
-       <li ng-repeat="item in buyctrl.items">
-         Buy {{ item.quantity }} {{ item.name }} <button ng-click="buyctrl.removeItem($index);" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button>
-       </li>
-     </ul>
-     <div class="emptyMessage" ng-if="buyctrl.items.length == 0">Everything is bought!</div>
-     </div>
+<body>
+   <div class="container" ng-controller='NarrowItDownController as ctrl'>
+
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
+
+    <div class="form-group">
+      <input type="text" placeholder="search term" class="form-control" ng-model="ctrl.searchTerm">
     </div>
-    <!--- End of Buy List -->
-     <!-- Bought List -->
-     <div class="col-md-6">
-     <h2>Already Bought:</h2>
-      <div ng-controller='AlreadyBoughtController as boughtctrl'>
-       <ol>
-        <li ng-repeat="item in boughtctrl.moveditems">
-          Bought {{ item.quantity }}  {{ item.name }} <button ng-click="boughtctrl.removeItem($index);">Remove Item</button>
-        </li>
-       </ol>
-       <div class="emptyMessage" ng-if="boughtctrl.moveditems.length == 0">Nothing bought yet</div>
-     </div>
+    <div class="form-group narrow-button">
+      <button class="btn btn-primary" ng-click="ctrl.narrowItDown()">Narrow It Down For Me!</button>
     </div>
-    <!--- End of Bought List -->
+
+    <!-- found-items should be implemented as a component -->
+   <found-items items="ctrl.found" on-remove="ctrl.removeItem(index)"></found-items>
+
   </div>
-</div>
+  <script src="angular.min.js"></script>
+  <script src="myctrl.js"></script>
 </body>
 </html>
