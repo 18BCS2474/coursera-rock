@@ -1,0 +1,249 @@
+body{
+	margin: 0px;
+	padding: 10px 10px 10px 10px;
+}
+h1{
+	text-align: center;
+}
+.row{
+	width: 100%;
+}
+.box1{
+	margin: 10px;
+	background-color: gray;
+	padding: 30px 5px 0px 10px;
+	border: 1px solid black;
+	width: 31%; 
+	box-sizing: border-box;
+	height: 300px;
+	float: left;
+	clear: right;
+	position: relative;
+	clear: both;
+	overflow: auto;
+}
+.box4{
+	background-color: pink;
+	height: 30px;
+	width:30%;
+	border: 1px solid black;
+	position: absolute;
+	top: 0px;
+	right:0px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.box2{
+	margin: 10px;
+	float: left;
+	background-color: #5F9EA0;
+	padding: 30px 5px 0px 5px;
+	border: 1px solid black;
+	width: 31%; 
+	box-sizing: border-box;
+	height: 300px;
+	position: relative;
+	overflow: auto;
+}
+.box5{
+	background-color: red;
+	height: 30px;
+	width:30%;
+	border: 1px solid black;
+	position: absolute;
+	top: 0px;
+	right:0px;
+	text-align: center;
+	font-weight: bold;
+}
+.box3{
+	margin: 10px;
+	float: left;
+	background-color: orange;
+	padding: 30px 5px 0px 5px;
+	border: 1px solid black;
+	width: 31%; 
+	box-sizing: border-box;
+	height: 300px;
+	position: relative;
+	overflow: auto;
+}
+.box6{
+	background-color: yellow;
+	height: 30px;
+	width:30%;
+	border: 1px solid black;
+	position: absolute;
+	top: 0px;
+	right:0px;
+	text-align: center;
+	font-weight: bold;
+}
+@media (max-width: 991px ) and (min-width: 768px) 
+{
+	body{
+	margin: 0px;
+	padding: 10px 10px 10px 10px;
+}
+	.box1{
+	margin: 10px;
+	background-color: gray;
+	padding: 23px 5px 0px 10px;
+	border: 1px solid black;
+	width: 40%; 
+	box-sizing: border-box;
+	height: 200px;
+	float: left;
+	clear: right;
+	position: relative;
+	clear: both;
+	font-size: 70%;
+	overflow: auto;
+}
+	.box4{
+	background-color: pink;
+	height: 20px;
+	width:20%;
+	border: 1px solid black;
+	position: absolute;
+	top: 0px;
+	right:0px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.box2{
+	margin: 10px;
+	float: left;
+	background-color: #5F9EA0;
+	padding: 23px 5px 0px 5px;
+	border: 1px solid black;
+	width: 40%; 
+	box-sizing: border-box;
+	height: 200px;
+	position: relative;
+	font-size: 70%;
+	overflow: auto;
+}
+.box5{
+	background-color: red;
+	height: 20px;
+	width:20%;
+	border: 1px solid black;
+	position: absolute;
+	top: 0px;
+	right:0px;
+	text-align: center;
+	font-weight: bold;
+}
+.box3{
+	margin: 10px;
+	float: left;
+	background-color: orange;
+	padding: 23px 5px 0px 5px;
+	border: 1px solid black;
+	width: 83%; 
+	box-sizing: border-box;
+	height: 200px;
+	position: relative;
+	font-size: 70%;
+	overflow: auto;
+}
+.box6{
+	background-color: yellow;
+	height: 20px;
+	width:20%;
+	border: 1px solid black;
+	position: absolute;
+	top: 0px;
+	right:0px;
+	text-align: center;
+	font-weight: bold;
+}
+}
+@media (max-width: 767px ) 
+{
+	body{
+	margin: 10px;
+	padding: 10px 10px 10px 10px;
+}
+	.box1{
+	/*margin: 10px;
+	margin-right: 10px;*/
+	background-color: gray;
+	padding: 23px 5px 10px 10px;
+	border: 1px solid black;
+	width: 100%; 
+	box-sizing: border-box;
+	height: 200px;
+	float: left;
+	position: relative;
+	clear: both;
+	font-size: 70%;
+	overflow: auto;
+}
+	.box4{
+	background-color: pink;
+	height: 20px;
+	width:20%;
+	border: 1px solid black;
+	position: absolute;
+	top: 0px;
+	right:0px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.box2{
+	/*margin: 10px;
+	margin-right: 10px;1*/
+	float: left;
+	background-color: #5F9EA0;
+	padding: 23px 5px 0px 5px;
+	border: 1px solid black;
+	width: 100%; 
+	box-sizing: border-box;
+	height: 200px;
+	position: relative;
+	font-size: 70%;
+	overflow: auto;
+}
+.box5{
+	background-color: red;
+	height: 20px;
+	width:20%;
+	border: 1px solid black;
+	position: absolute;
+	top: 0px;
+	right:0px;
+	text-align: center;
+	font-weight: bold;
+}
+.box3{
+	/*margin: 10px;
+	margin-right: 10px;*/
+	float: left;
+	background-color: orange;
+	padding: 23px 5px 0px 5px;
+	border: 1px solid black;
+	width: 100%; 
+	box-sizing: border-box;
+	height: 200px;
+	position: relative;
+	font-size: 70%;
+	overflow: auto;
+}
+.box6{
+	background-color: yellow;
+	height: 20px;
+	width:20%;
+	border: 1px solid black;
+	position: absolute;
+	top: 0px;
+	right:0px;
+	text-align: center;
+	font-weight: bold;
+
+}
+}

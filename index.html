@@ -1,93 +1,33 @@
 <!DOCTYPE html>
-
-<html ng-app="myapp">
+<html>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-    <script src="angular.min.js"></script>
-    <script src="apps.js"></script>
-<script src="info.js"></script>
-    <meta charset="utf-8">
-    <title>Covid19 Information</title>
-
-  </head>
-  <body ng-controller="myctrl" >
-    <!-- <div class="container"> -->
-    <div class="jumbotron py-3 ">
-      <center>
-        <h2>Welcome To Rock World</h2>
-        <br><h4>Here you can get latest report of COVID19</h4>
-      <img src="mask.jpg" style="text-align: center; " >
-    </center>
-  <h2 class="text-center">{{titl}}</h2>
-  <p>The coronavirus outbreak came to light on December 31, 2019 when China informed the World Health Organisation of a cluster of cases of pneumonia of an unknown cause in Wuhan City in Hubei Province. Subsequently the disease spread to more Provinces in China, and to the rest of the world. The WHO has now declared it a pandemic. The virus has been named SARS-CoV-2 and the disease is now called COVID-19</p>
-<!-- all_data -->
-  <h1 class="text-center mt-4 text-uppercase">WorldWide Cases</h1>
-<div class="row text-center mt-4"  >
-  <div class="col-md-4">
-    <div class="card" >
-      <div class="card body" style="background-color:Orange;">
-        <h3>Confirmed Cases</h3>
-        <h3>{{all_data.confirmed.value}}</h3>
-      </div>
-        </div>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menue Data</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h1>Transport Type</h1>
+  <div class="row">
+  <div class="box1">
+    <div class="box4">
+      Motorbike
+    </div>
+    A motorcycle, often called a motorbike, bike, or cycle, is a two- or three-wheeled motor vehicle.Motorcycle design varies greatly to suit a range of different purposes: long distance travel, commuting, cruising, sport including racing, and off-road riding. Motorcycling is riding a motorcycle and related social activity such as joining a motorcycle club and attending motorcycle rallies.In 2014, the three top motorcycle producers globally by volume were Honda (28%), Yamaha (17%) (both from Japan), and Hero MotoCorp (India).
   </div>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card body" style="background-color:Green;">
-        <h3>Recovered Cases</h3>
-        <h3>{{all_data.recovered.value}}</h3>
-      </div>
-        </div>
+  <div class="box2">
+    <div class="box5">
+      Ships
+    </div>
+    A ship is a large watercraft that travels the world's oceans and other sufficiently deep waterways, carrying goods or passengers, or in support of specialized missions, such as defense, research and fishing. Historically, a "ship" was a sailing vessel with at least three square-rigged masts and a full bowsprit. Ships are generally distinguished from boats, based on size, shape, load capacity, and tradition.
+    Ships have been important contributors to human migration and commerce. They have supported the spread of colonization and the slave trade, but have also served scientific, cultural, and humanitarian needs.
   </div>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card body" style="background-color:Red;">
-        <h3>Death Cases</h3>
-        <h3>{{all_data.deaths.value}}</h3>
-      </div>
-        </div>
-        <br>
-        <h5>Exact Data given by Raushan Raj</h5>
-  </div>
-  </div>
-<!-- end_data -->
-<input type="text" class="form-control mt-4" placeholder="Enter country name in small letter" ng-model="c" ng-change="c_data()" >
-<div class="container-fluid"  ng-if="cdata">
-  <h1 class="text-center mt-4 text-uppercase">{{c}} Status</h1>
-<div class="row text-center mt-4">
-  <div class="col-md-4">
-    <div class="card ">
-      <div class="card body" style="background-color:Orange;">
-        <h3>Confirmed Cases</h3>
-        <h3>{{cdata.confirmed.value}}</h3>
-      </div>
-        </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card ">
-      <div class="card body" style="background-color:Green;">
-        <h3>Recovered Cases</h3>
-        <h3>{{cdata.recovered.value}}</h3>
-
-      </div>
-        </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card ">
-      <div class="card body" style="background-color:Red;">
-        <h3>Death Cases</h3>
-        <h3>{{cdata.deaths.value}}</h3>
-      </div>
-        </div>
-  </div>
-
+  <div class="box3">
+    <div class="box6">
+      Trains
+    </div>
+    A train is a form of rail transport consisting of a series of connected vehicles that generally run along a railroad (or railway) track to transport passengers or cargo (also known as "freight" or "goods"). The word "train" comes from the Old French trahiner, derived from the Latin trahere meaning "to pull" or "to draw".Motive power for a train is provided by a separate locomotive or individual motors in a self-propelled multiple unit. The term "engine" is often used as an alternative to locomotive. 
   </div>
 </div>
-</div>
-
-  </body>
+</body>
 </html>
